@@ -1,0 +1,15 @@
+.recipeCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 5%;
+  width: 50%;
+  margin: 0 auto;
+}
+.recipeCard h2{
+    text-align: left;
+}
+.recipeImage{
+  
+}

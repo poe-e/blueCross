@@ -1,0 +1,10 @@
+
+
+.navbarWrapper{
+    display: flex;
+    justify-content: space-between;
+    padding: 2% 2% 0 2%;
+}
+.input{
+    height: 40%;
+}
