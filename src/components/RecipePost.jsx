@@ -10,7 +10,7 @@ function RecipePost({ id, title, image }){
     }
 
     return(
-        <li onClick={()=>handleClick(id)}>
+        <li className="recipeListItem" onClick={()=>handleClick(id)}>
             <div className="recipe">
                 <h2>{title}</h2>
                 <div className="imageWrapper">

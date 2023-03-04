@@ -4,10 +4,10 @@ function HealthItems({diets, healthScore, pricePer, readyIn, servings}){
 
     return(
         <>
-            <div style={{display:"flex", justifyContent:"space-between", width:"100%"}}>
+            <div style={{display:"flex", justifyContent:"space-evenly", width:"100%"}}>
                 <ul>
                     {diets.map((diet) =>(
-                        <li>{diet.charAt(0).toUpperCase() + diet.slice(1)}</li>
+                        <li key={diet}>{diet.charAt(0).toUpperCase() + diet.slice(1)}</li>
                     ))}
                 </ul>
                 <ul>
