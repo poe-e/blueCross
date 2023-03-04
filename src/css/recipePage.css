@@ -3,8 +3,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 5%;
-  width: 50%;
+  padding-top: 1%;
+  width: 30%;
   margin: 0 auto;
 }
 .recipeCard h2{
@@ -12,4 +12,9 @@
 }
 .recipeImage{
   
+}
+
+.dietHeaders{
+    display: flex;
+    
 }

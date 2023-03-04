@@ -3,7 +3,11 @@
 .navbarWrapper{
     display: flex;
     justify-content: space-between;
-    padding: 2% 2% 0 2%;
+    padding: 0 2% 0 2%;
+    background-color: rgba(79, 85, 85, 0.438);
+}
+.navbarWrapper h1{
+    color: rgb(61, 60, 59);
 }
 .input{
     height: 40%;
