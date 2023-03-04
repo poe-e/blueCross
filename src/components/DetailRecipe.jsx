@@ -4,16 +4,13 @@ import useFetch from "../hooks/useFetch";
 import '../css/recipePage.css'
 import NavBar from "./NavBar";
 import HealthItems from "./HealthItems";
+import IngredientsList from "./IngredientsList";
 
 function DetailRecipe(){
 
     const params = useParams();
     
-    const { data, error } = useFetch(`https://api.spoonacular.com/recipes/${params.id}/information?apiKey=d2d83e91f8e940628f5d62a3041fa480`);
-
-    useEffect(()=>{
-        console.log(data);
-    })
+    const { data, error } = useFetch(`https://api.spoonacular.com/recipes/${params.id}/information?apiKey=b04c3f5a80ab4b0288f03fe99ac7dd36`);
 
     return(
         <>
@@ -33,9 +30,13 @@ function DetailRecipe(){
                                 readyIn={data.readyInMinutes}
                                 servings={data.servings}
                             />
-                        {/* </div> */}
-                        
                         <div dangerouslySetInnerHTML={{ __html: data.summary }} /> 
+                        <div>
+                            <IngredientsList 
+                                ingredients={data.extendedIngredients}
+                                instructions={data.analyzedInstructions}
+                            />
+                        </div>
                     </div>
                 </div>
             }

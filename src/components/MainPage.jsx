@@ -6,14 +6,16 @@ import RecipeList from "./RecipeList";
 function MainPage(){
 
     const location = useLocation();
-    const searchQuery = location.state?.searchQuery;
-    const navigate = useNavigate();
+    const searchParams = new URLSearchParams(location.search);
+    const searchQuery = searchParams.get('search');
+    // const searchQuery = location.search;
+    // const navigate = useNavigate();
 
-    useEffect(()=>{
-        if(searchQuery){
-            navigate('/', { state: { searchQuery: ''}});
-        }
-    });
+    // useEffect(()=>{
+    //     if(searchQuery && window.performance.navigate. === 1){
+    //         navigate('/', { state: { searchQuery: ''}});
+    //     }
+    // });
 
     return(
         <>
