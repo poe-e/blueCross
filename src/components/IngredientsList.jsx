@@ -17,7 +17,7 @@ function IngredientsList({ ingredients, instructions }){
 
                 )
             })}
-            <div>
+            <div style={{marginBottom:"50%"}}>
                 <h2>Instructions</h2>
                 {instructions[0].steps.map((step) => (
                     <div key={step.number}>

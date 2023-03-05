@@ -1,4 +1,4 @@
-import Pagnation from "./Pagnation";
+import Pagination from "./Pagination";
 import React, { useState, useEffect } from 'react';
 import RecipePost from "./RecipePost";
 import useFetch from "../hooks/useFetch";
@@ -6,9 +6,11 @@ import FilterMenu from "./FilterMenu";
 
 function RecipeList({searchQuery}){
 
-
+    const [curPage, setCurPage] = useState(1);
+    const [currentPaginationData, setCurrentPaginationData] = useState([]);
     const [filterValue, setFilterValue] = useState([]);
-    const [url, setUrl] = useState('https://api.spoonacular.com/recipes/complexSearch?apiKey=a864ae16bae64927bb9649b8e9a21180')
+    const [url, setUrl] = useState('https://api.spoonacular.com/recipes/complexSearch?apiKey=e32b39c5028b445ba54733104bb300d6&number=50')
+    const curPageSize = 5;
 
     const handleFilterChange  = (value, checked) => {
         setFilterValue(prevFilterValue => {
@@ -20,11 +22,14 @@ function RecipeList({searchQuery}){
             }
         });
     }
+    const updatePage = (pageNum) => {
+        if(pageNum !== 0) setCurPage(pageNum);
+    }
 
     useEffect(() => {
-        let newUrl = 'https://api.spoonacular.com/recipes/complexSearch?apiKey=a864ae16bae64927bb9649b8e9a21180';
+        let newUrl = 'https://api.spoonacular.com/recipes/complexSearch?apiKey=e32b39c5028b445ba54733104bb300d6&number=50';
         if(searchQuery){
-            newUrl = `https://api.spoonacular.com/recipes/complexSearch?apiKey=a864ae16bae64927bb9649b8e9a21180&query=${searchQuery}&limit=50`;
+            newUrl = `https://api.spoonacular.com/recipes/complexSearch?apiKey=e32b39c5028b445ba54733104bb300d6&query=${searchQuery}&number=50`;
         }
         if(filterValue){
             newUrl += `&cuisine=${filterValue.join(',')}`;
@@ -32,19 +37,24 @@ function RecipeList({searchQuery}){
         setUrl(newUrl);
     }, [searchQuery, filterValue]);
 
+    console.log(url)
     const { data, error } = useFetch(url);
-    // console.log(searchQuery, filterValue, data);
+
+    useEffect(() => {
+        if(data && data.results){
+            setCurrentPaginationData(...[data.results.slice(curPageSize*(curPage-1), curPageSize*curPage)]);
+        }
+    },[curPage, data]);
 
 
     if(error) return error && <p style={{paddingLeft: '2%'}}>Something went wrong, may try refreshing?</p>
 
     return(
         <>
-            <Pagnation/>
             <FilterMenu onFilterChange={handleFilterChange}/>
             <div style={{display: "flex", flexDirection: "row", justifyContent: "center"}}>
                 <ul>
-                {data && data.results.map((recipe) => {
+                {currentPaginationData && currentPaginationData.map((recipe) => {
                             return (
                                 <RecipePost
                                 key={recipe.id}
@@ -57,6 +67,14 @@ function RecipeList({searchQuery}){
                 }
                 </ul>
             </div>
+            {data && (
+                <Pagination 
+                    currentPage={curPage}
+                    totalCount={data.results.length}
+                    pageSize={curPageSize}
+                    onPageChange={updatePage}
+                />
+                )}
 
         </>
     );
