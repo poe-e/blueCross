@@ -2,45 +2,49 @@ import Pagnation from "./Pagnation";
 import React, { useState, useEffect } from 'react';
 import RecipePost from "./RecipePost";
 import useFetch from "../hooks/useFetch";
+import FilterMenu from "./FilterMenu";
 
 function RecipeList({searchQuery}){
 
-    // const [curPage, setCurPage] = useState(1);
-    // const [curPageSize, setCurPageSize] = useState(5);
-    // const [currentPageData, setCurrentPageData] = useState(null);
-    // const [data, setData] = useState(null);
-    // const [error, setError] = useState(null);
-    // const [data, setData] = useState(null);
 
-    let url = 'https://api.spoonacular.com/recipes/complexSearch?apiKey=b04c3f5a80ab4b0288f03fe99ac7dd36';
-    if(searchQuery){
-        console.log('update url')
-        url = `https://api.spoonacular.com/food/search?apiKey=b04c3f5a80ab4b0288f03fe99ac7dd36&query=${searchQuery}&limit=50`
+    const [filterValue, setFilterValue] = useState([]);
+    const [url, setUrl] = useState('https://api.spoonacular.com/recipes/complexSearch?apiKey=a864ae16bae64927bb9649b8e9a21180')
+
+    const handleFilterChange  = (value, checked) => {
+        setFilterValue(prevFilterValue => {
+            if(checked){
+                return [...prevFilterValue, value];
+            }
+            else{
+                return prevFilterValue.filter(item => item !== value);
+            }
+        });
     }
+
+    useEffect(() => {
+        let newUrl = 'https://api.spoonacular.com/recipes/complexSearch?apiKey=a864ae16bae64927bb9649b8e9a21180';
+        if(searchQuery){
+            newUrl = `https://api.spoonacular.com/recipes/complexSearch?apiKey=a864ae16bae64927bb9649b8e9a21180&query=${searchQuery}&limit=50`;
+        }
+        if(filterValue){
+            newUrl += `&cuisine=${filterValue.join(',')}`;
+        }
+        setUrl(newUrl);
+    }, [searchQuery, filterValue]);
+
     const { data, error } = useFetch(url);
+    // console.log(searchQuery, filterValue, data);
 
 
-    // if(loading) return <p>Loading...</p>
     if(error) return error && <p style={{paddingLeft: '2%'}}>Something went wrong, may try refreshing?</p>
 
     return(
         <>
             <Pagnation/>
+            <FilterMenu onFilterChange={handleFilterChange}/>
             <div style={{display: "flex", flexDirection: "row", justifyContent: "center"}}>
                 <ul>
-                {data &&
-                    (data.searchResults
-                    ? data.searchResults[0].results.map((recipe) => {
-                            return (
-                                <RecipePost
-                                key={recipe.id}
-                                id={recipe.id}
-                                title={recipe.name}
-                                image={recipe.image}
-                                />
-                            );
-                        })
-                    : data.results.map((recipe) => {
+                {data && data.results.map((recipe) => {
                             return (
                                 <RecipePost
                                 key={recipe.id}
@@ -50,7 +54,6 @@ function RecipeList({searchQuery}){
                                 />
                             );
                     })
-                    )
                 }
                 </ul>
             </div>
