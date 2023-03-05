@@ -9,7 +9,7 @@ function RecipeList({searchQuery}){
     const [curPage, setCurPage] = useState(1);
     const [currentPaginationData, setCurrentPaginationData] = useState([]);
     const [filterValue, setFilterValue] = useState([]);
-    const [url, setUrl] = useState('https://api.spoonacular.com/recipes/complexSearch?apiKey=e32b39c5028b445ba54733104bb300d6&number=50')
+    const [url, setUrl] = useState('https://api.spoonacular.com/recipes/complexSearch?apiKey=432bdf80abdd4fb38e6ecb9633e02f7b&number=50')
     const curPageSize = 5;
 
     const handleFilterChange  = (value, checked) => {
@@ -27,9 +27,9 @@ function RecipeList({searchQuery}){
     }
 
     useEffect(() => {
-        let newUrl = 'https://api.spoonacular.com/recipes/complexSearch?apiKey=e32b39c5028b445ba54733104bb300d6&number=50';
+        let newUrl = 'https://api.spoonacular.com/recipes/complexSearch?apiKey=432bdf80abdd4fb38e6ecb9633e02f7b&number=50';
         if(searchQuery){
-            newUrl = `https://api.spoonacular.com/recipes/complexSearch?apiKey=e32b39c5028b445ba54733104bb300d6&query=${searchQuery}&number=50`;
+            newUrl = `https://api.spoonacular.com/recipes/complexSearch?apiKey=432bdf80abdd4fb38e6ecb9633e02f7b&query=${searchQuery}&number=50`;
         }
         if(filterValue){
             newUrl += `&cuisine=${filterValue.join(',')}`;

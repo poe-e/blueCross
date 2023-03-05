@@ -9,7 +9,7 @@ function DetailRecipe(){
 
     const params = useParams();
     
-    const { data, error } = useFetch(`https://api.spoonacular.com/recipes/${params.id}/information?apiKey=fa9ce7a6383540c0b2b927e871c49548`);
+    const { data, error } = useFetch(`https://api.spoonacular.com/recipes/${params.id}/information?apiKey=432bdf80abdd4fb38e6ecb9633e02f7b`);
 
     return(
         <>
