@@ -37,7 +37,6 @@ function RecipeList({searchQuery}){
         setUrl(newUrl);
     }, [searchQuery, filterValue]);
 
-    console.log(url)
     const { data, error } = useFetch(url);
 
     useEffect(() => {

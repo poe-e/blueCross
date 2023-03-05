@@ -1,6 +1,5 @@
 import "../css/pagination.css"
 import usePagination, { DOTS } from "../hooks/usePagination";
-import { useMemo } from "react";
 import { nanoid } from "nanoid";
 
 function Pagination({
