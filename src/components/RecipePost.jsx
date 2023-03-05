@@ -5,7 +5,6 @@ function RecipePost({ id, title, image }){
     const navigate = useNavigate();
 
     function handleClick(recipeID){
-        console.log('move pages');
         navigate(`/recipeDetails/${recipeID}`);
     }
 
