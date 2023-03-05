@@ -13,10 +13,15 @@
   }
   
 .values {
-    max-height: 0;
+    max-height: 1px;
     overflow: hidden;
-    transition: max-height 0.2s ease-out;
-    margin: 1%;
+    transition: max-height .2s ease-out;
+    display: flex;
+    flex-wrap: wrap;
+}
+.values > div{
+    margin-right: 2%;
+    margin-left: 1%;
 }
 .values label{
     color: whitesmoke;
@@ -24,7 +29,7 @@
     /* padding-left: 1%; */
 }  
 .values.show {
-    max-height: 500px;
+    max-height: 1000px;
 }
 input[type="checkbox"]{
     display: none;
