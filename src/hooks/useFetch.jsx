@@ -5,6 +5,7 @@ function useFetch(url) {
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    // const controller = new AbortController();
     async function fetchData() {
       try {
         const response = await fetch(url);
@@ -15,6 +16,7 @@ function useFetch(url) {
       }
     }
     fetchData();
+    // return () => controller.abort();
   }, [url]);
 
   return { data, error };
