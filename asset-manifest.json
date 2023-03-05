@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/blueCross/static/css/main.00371aa5.css",
+    "main.js": "/blueCross/static/js/main.3c994c05.js",
+    "index.html": "/blueCross/index.html",
+    "main.00371aa5.css.map": "/blueCross/static/css/main.00371aa5.css.map",
+    "main.3c994c05.js.map": "/blueCross/static/js/main.3c994c05.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.00371aa5.css",
+    "static/js/main.3c994c05.js"
+  ]
+}
