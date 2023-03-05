@@ -23,8 +23,6 @@ function Pagination({
         onPageChange(currentPage - 1);
     };
 
-    console.log('total cont:', totalCount)
-
 
     return(
         <>
@@ -59,6 +57,7 @@ function Pagination({
                         <button
                         type="button"
                         onClick={() => onPageChange(pageNumber)}
+                        disabled={currentPage === pageNumber}
                         >
                         {pageNumber}
                         </button>
