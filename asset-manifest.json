@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/blueCross/static/css/main.00371aa5.css",
-    "main.js": "/blueCross/static/js/main.6b37c7b5.js",
+    "main.css": "/blueCross/static/css/main.5d1c8083.css",
+    "main.js": "/blueCross/static/js/main.b7d7af93.js",
     "index.html": "/blueCross/index.html",
-    "main.00371aa5.css.map": "/blueCross/static/css/main.00371aa5.css.map",
-    "main.6b37c7b5.js.map": "/blueCross/static/js/main.6b37c7b5.js.map"
+    "main.5d1c8083.css.map": "/blueCross/static/css/main.5d1c8083.css.map",
+    "main.b7d7af93.js.map": "/blueCross/static/js/main.b7d7af93.js.map"
   },
   "entrypoints": [
-    "static/css/main.00371aa5.css",
-    "static/js/main.6b37c7b5.js"
+    "static/css/main.5d1c8083.css",
+    "static/js/main.b7d7af93.js"
   ]
 }
