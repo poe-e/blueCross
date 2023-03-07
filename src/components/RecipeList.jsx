@@ -10,6 +10,7 @@ function RecipeList({searchQuery}){
     const [currentPaginationData, setCurrentPaginationData] = useState([]);
     const [filterValue, setFilterValue] = useState([]);
     const [url, setUrl] = useState('https://api.spoonacular.com/recipes/complexSearch?apiKey=3050390b4d5b4dcb86d047234f436b0f&number=50')
+    
     const curPageSize = 5;
 
     const handleFilterChange  = (value, checked) => {
