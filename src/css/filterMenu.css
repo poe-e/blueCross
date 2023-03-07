@@ -4,12 +4,12 @@
 }
 .toggle-button {
     display: block;
-    width: 100%;
+    width: 98vw;
     text-align: left;
     color: whitesmoke;
     font-weight: 600;
     font-size: x-large;
-    margin-left: 1%;
+    /* padding-left: 1%; */
   }
   
 .values {
@@ -29,7 +29,7 @@
     /* padding-left: 1%; */
 }  
 .values.show {
-    max-height: 1000px;
+    max-height: 50vh;
 }
 input[type="checkbox"]{
     display: none;

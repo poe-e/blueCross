@@ -10,7 +10,7 @@ function RecipeList({searchQuery}){
     const [currentPaginationData, setCurrentPaginationData] = useState([]);
     const [filterValue, setFilterValue] = useState([]);
     const [url, setUrl] = useState('https://api.spoonacular.com/recipes/complexSearch?apiKey=3050390b4d5b4dcb86d047234f436b0f&number=50')
-    const curPageSize = 5;
+    const curPageSize = 6;
 
     const handleFilterChange  = (value, checked) => {
         setFilterValue(prevFilterValue => {
@@ -51,8 +51,9 @@ function RecipeList({searchQuery}){
     return(
         <>
             <FilterMenu onFilterChange={handleFilterChange}/>
-            <div style={{display: "flex", flexDirection: "row", justifyContent: "center"}}>
-                <ul>
+            <div style={{display: "flex", flexDirection: "row", justifyContent: "center", width:"98vw"}}>
+                {/* <ul style={{listStyleType:"none;", padding:"0;"}}> */}
+                <div style={{display:"flex", flexDirection:"row", flexWrap:"wrap", justifyContent:"space-evenly"}}>
                 {currentPaginationData && currentPaginationData.map((recipe) => {
                             return (
                                 <RecipePost
@@ -64,7 +65,9 @@ function RecipeList({searchQuery}){
                             );
                     })
                 }
-                </ul>
+                </div>
+
+                {/* </ul> */}
             </div>
             {data && (
                 <Pagination 

@@ -36,7 +36,9 @@ function FilterMenu({ onFilterChange }) {
 
     return (
         <div className="filterWrapper">
-            <div className="toggle-button" onClick={() => setShowValues(!showValues)}>Cusines</div>
+            <div className="toggle-button" onClick={() => setShowValues(!showValues)}>
+              <h5 style={{margin:"0", paddingLeft:"1%"}}>Cusines</h5>
+            </div>
             <div className={`values ${showValues ? "show" : ""}`}>
             {values.map(value => (
             <div key={value}>

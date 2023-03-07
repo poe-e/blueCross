@@ -18,7 +18,7 @@ function DetailRecipe(){
             { data && 
                 <div >
                     <div className="recipeCard">
-                        <h2 style={{textAlign:"left"}}>{data.title}</h2>
+                        <h2>{data.title}</h2>
                         <img className="recipeImage" src={data.image} alt=""/>
                         {/* this opens the site up to cross site scripting, if I had more time I'd parse the summary and print it myself */}
                         {/* <div className="dietHeaders"> */}

@@ -1,3 +1,7 @@
+.body{
+  overflow-x: hidden;
+}
+
 .recipeCard {
   display: flex;
   flex-direction: column;
@@ -7,21 +11,23 @@
   width: 50%;
   margin: 0 auto;
 }
-.recipeCard h2{
-    text-align: left;
+.recipe h2{
+    text-align: center;
 }
 .recipe{
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 500px;
+  justify-content: center;
 }
-.recipeImage{
+/* .recipeImage{
   max-width: 100%;
-}
+} */
 .recipeListItem{
-  list-style: none;
-  padding: 10px;
+  /* list-style: none; */
+  font-size: larger;
+  font-weight: 500;
+  width: 30vw;
   margin-bottom: 5px;
   border-radius: 5px;
   background-color: #f0f0f0;
@@ -41,9 +47,9 @@
   width: 100%
 }
 .ingredientWrapper img {
-  width: 100px;
+  width: 10%;
 }
 
-.ingredientWrapper div {
+/* .ingredientWrapper div {
   width: calc((100% - 100px) / 2);
-}
+} */
