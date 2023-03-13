@@ -20,6 +20,10 @@
   align-items: center;
   justify-content: center;
 }
+.recipe img{
+  width: 100%;
+  height: auto;
+}
 /* .recipeImage{
   max-width: 100%;
 } */

@@ -9,8 +9,7 @@ function RecipeList({searchQuery}){
     const [curPage, setCurPage] = useState(1);
     const [currentPaginationData, setCurrentPaginationData] = useState([]);
     const [filterValue, setFilterValue] = useState([]);
-    const [url, setUrl] = useState('https://api.spoonacular.com/recipes/complexSearch?apiKey=3050390b4d5b4dcb86d047234f436b0f&number=50')
-    
+    const [url, setUrl] = useState('https://api.spoonacular.com/recipes/complexSearch?apiKey=b04c3f5a80ab4b0288f03fe99ac7dd36&number=50')
     const curPageSize = 5;
 
     const handleFilterChange  = (value, checked) => {
@@ -28,9 +27,9 @@ function RecipeList({searchQuery}){
     }
 
     useEffect(() => {
-        let newUrl = 'https://api.spoonacular.com/recipes/complexSearch?apiKey=3050390b4d5b4dcb86d047234f436b0f&number=50';
+        let newUrl = 'https://api.spoonacular.com/recipes/complexSearch?apiKey=b04c3f5a80ab4b0288f03fe99ac7dd36&number=50';
         if(searchQuery){
-            newUrl = `https://api.spoonacular.com/recipes/complexSearch?apiKey=3050390b4d5b4dcb86d047234f436b0f&query=${searchQuery}&number=50`;
+            newUrl = `https://api.spoonacular.com/recipes/complexSearch?apiKey=b04c3f5a80ab4b0288f03fe99ac7dd36&query=${searchQuery}&number=50`;
         }
         if(filterValue){
             newUrl += `&cuisine=${filterValue.join(',')}`;
@@ -52,9 +51,9 @@ function RecipeList({searchQuery}){
     return(
         <>
             <FilterMenu onFilterChange={handleFilterChange}/>
-            <div style={{display: "flex", flexDirection: "row", justifyContent: "center", width:"98vw"}}>
+            <div style={{display: "flex", flexDirection: "row", justifyContent: "center", alignItems:"center", width:"98vw", height:"85vh"}}>
                 {/* <ul style={{listStyleType:"none;", padding:"0;"}}> */}
-                <div style={{display:"flex", flexDirection:"row", flexWrap:"wrap", justifyContent:"space-evenly"}}>
+                <div style={{display:"flex", flexDirection:"row", flexWrap:"wrap", justifyContent:"space-evenly", height:"80%"}}>
                 {currentPaginationData && currentPaginationData.map((recipe) => {
                             return (
                                 <RecipePost
