@@ -1,6 +1,4 @@
-.body{
-  overflow-x: hidden;
-}
+
 
 .recipeCard {
   display: flex;
@@ -11,8 +9,9 @@
   width: 50%;
   margin: 0 auto;
 }
-.recipe h2{
+.recipe > h2{
     text-align: center;
+    font-size: 1.5vw;
 }
 .recipe{
   display: flex;
@@ -29,7 +28,7 @@
 } */
 .recipeListItem{
   /* list-style: none; */
-  font-size: larger;
+  font-size: large;
   font-weight: 500;
   width: 30vw;
   margin-bottom: 5px;
