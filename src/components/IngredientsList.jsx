@@ -3,7 +3,7 @@ import "../css/recipePage.css"
 function IngredientsList({ ingredients, instructions }){
 
     return(
-        <div style={{display:"flex", flexDirection:"column", paddingTop:"5px"}}>
+        <div style={{display:"flex", flexDirection:"column", paddingTop:"5vh"}}>
             {ingredients.map((ingredient) => {
                 let name = ingredient.original;
                 if(name && name[0].match(/[a-z]/i)){
@@ -20,7 +20,7 @@ function IngredientsList({ ingredients, instructions }){
             <div style={{marginBottom:"50%"}}>
                 <h2>Instructions</h2>
                 {instructions[0].steps.map((step) => (
-                    <div key={step.number}>
+                    <div key={step.number} style={{}}>
                         <b>Step {step.number}</b>: {step.step}
                     </div>
                 ))}

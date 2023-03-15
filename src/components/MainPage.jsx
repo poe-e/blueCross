@@ -10,7 +10,7 @@ function MainPage(){
 
     return(
         <>
-            <NavBar></NavBar>
+
             <RecipeList searchQuery={searchQuery}></RecipeList>
         </>
         

@@ -3,13 +3,14 @@ import React, { useState, useEffect } from 'react';
 import RecipePost from "./RecipePost";
 import useFetch from "../hooks/useFetch";
 import FilterMenu from "./FilterMenu";
+import NavBar from "./NavBar";
 
 function RecipeList({searchQuery}){
 
     const [curPage, setCurPage] = useState(1);
     const [currentPaginationData, setCurrentPaginationData] = useState([]);
     const [filterValue, setFilterValue] = useState([]);
-    const [url, setUrl] = useState('https://api.spoonacular.com/recipes/complexSearch?apiKey=b04c3f5a80ab4b0288f03fe99ac7dd36&number=50')
+    const [url, setUrl] = useState('https://api.spoonacular.com/recipes/complexSearch?apiKey=fa9ce7a6383540c0b2b927e871c49548&number=60')
     const curPageSize = 6;
 
     const handleFilterChange  = (value, checked) => {
@@ -27,14 +28,15 @@ function RecipeList({searchQuery}){
     }
 
     useEffect(() => {
-        let newUrl = 'https://api.spoonacular.com/recipes/complexSearch?apiKey=b04c3f5a80ab4b0288f03fe99ac7dd36&number=50';
+        let newUrl = 'https://api.spoonacular.com/recipes/complexSearch?apiKey=fa9ce7a6383540c0b2b927e871c49548&number=60';
         if(searchQuery){
-            newUrl = `https://api.spoonacular.com/recipes/complexSearch?apiKey=b04c3f5a80ab4b0288f03fe99ac7dd36&query=${searchQuery}&number=50`;
+            newUrl = `https://api.spoonacular.com/recipes/complexSearch?apiKey=fa9ce7a6383540c0b2b927e871c49548&query=${searchQuery}&number=60`;
         }
         if(filterValue){
             newUrl += `&cuisine=${filterValue.join(',')}`;
         }
         setUrl(newUrl);
+        setCurPage(1);
     }, [searchQuery, filterValue]);
 
     const { data, error } = useFetch(url);
@@ -51,7 +53,8 @@ function RecipeList({searchQuery}){
     return(
         <>
             {/* <FilterMenu onFilterChange={handleFilterChange}/> */}
-            <div style={{display: "flex", flexDirection: "column", justifyContent: "space-evenly", alignItems:"center", height:"88vh"}}>
+            <div style={{display: "flex", flexDirection: "column", justifyContent: "space-between", alignItems:"center", height:"83vh"}}>
+            <NavBar></NavBar>
                 <div style={{display:"flex", flexDirection:"row", flexWrap:"wrap", justifyContent:"space-evenly"}}>
                 {currentPaginationData && currentPaginationData.map((recipe) => {
                             return (
@@ -65,7 +68,9 @@ function RecipeList({searchQuery}){
                     })
                 }
                 </div>
-                {data && (
+
+            </div>
+            {data && (
                 <Pagination 
                     currentPage={curPage}
                     totalCount={data.results.length}
@@ -73,8 +78,6 @@ function RecipeList({searchQuery}){
                     onPageChange={updatePage}
                 />
                 )}
-            </div>
-
         </>
     );
 }

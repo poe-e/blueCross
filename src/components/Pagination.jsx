@@ -24,12 +24,12 @@ function Pagination({
 
 
     return(
-        <>
+        <div style={{marginTop:"10vh"}}>
             <ul className="pagList">
                 <li className="paginationItem">
                     <button
                     type="button"
-                    className="arrowButton left"
+                    className="pagnationButton"
                     onClick={onPrevious}
                     disabled={currentPage === 1}
                     >
@@ -55,6 +55,7 @@ function Pagination({
                     >
                         <button
                         type="button"
+                        className="pagnationButton"
                         onClick={() => onPageChange(pageNumber)}
                         disabled={currentPage === pageNumber}
                         >
@@ -68,6 +69,7 @@ function Pagination({
                 <li className="paginationItem">
                     <button
                     type="button"
+                    className="pagnationButton"
                     onClick={onNext}
                     disabled={currentPage >= (totalCount/pageSize)} // change this line to disable a button.
                     >
@@ -75,7 +77,7 @@ function Pagination({
                     </button>
                 </li>
             </ul>
-        </>
+        </div>
     );
 }
 
