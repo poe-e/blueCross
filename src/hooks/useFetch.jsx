@@ -4,8 +4,10 @@ function useFetch(url) {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
 
+
   useEffect(() => {
     // const controller = new AbortController();
+    // console.log('fetched')
     async function fetchData() {
       try {
         const response = await fetch(url);
